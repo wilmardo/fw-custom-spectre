@@ -1,3 +1,5 @@
+# DOES NOT WORK, ONLY has 512kb of ram where rus requires 1mb
+
 # Spectre pin mappings
 
 Board uses a molex 48 pin header p/n 5007620481
