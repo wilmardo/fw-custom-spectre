@@ -1,163 +1,493 @@
+#
+# SPECTRE board (STM32F407VET6 "BLACK_F407VE")
+# https://github.com/Tjeerdie/SPECTRE
+#
+# Molex 48-pin ECU connector p/n 5007620481 - see readme.md for the full pin table.
+#
+
 pins:
-  # Molex 48-pin ECU connector p/n 5007620481 - see readme.md for the full pin table
+  - pin: 1
+    function: Power ground
+    type: gnd
 
-  # Injector outputs
-  - id: D12
+  - pin: 2
+    function: Power ground
+    type: gnd
+
+  - pin: 3
+    function: 12V ECU supply
+    type: 12V
+
+  - pin: 4
+    function: 12V ECU supply
+    type: 12V
+
+  - pin: 5
+    id: E13
     class: outputs
-    ts_name: Injector 1 (Pin 32)
+    function: Injector 8
+    ts_name: Injector 8
+    type: inj
 
-  - id: D13
+  - pin: 6
+    id: E14
     class: outputs
-    ts_name: Injector 2 (Pin 44)
+    function: Injector 7
+    ts_name: Injector 7
+    type: inj
 
-  - id: D14
+  - pin: 7
+    id: E9
     class: outputs
-    ts_name: Injector 3 (Pin 28)
+    function: Injector 5
+    ts_name: Injector 5
+    type: inj
 
-  - id: D15
+  - pin: 8
+    id: E11
     class: outputs
-    ts_name: Injector 4 (Pin 24)
+    function: Injector 6
+    ts_name: Injector 6
+    type: inj
 
-  - id: E9
+  - pin: 9
+    id: C7
     class: outputs
-    ts_name: Injector 5 (Pin 7)
+    function: Idle solenoid 1 (STEP_1A_OUT if JP5 bridged)
+    ts_name: Idle 1 Out
+    type: ls
 
-  - id: E11
+  - pin: 10
+    id: EFI_ADC_9
+    class: analog_inputs
+    function: External baro sensor input, no on-board baro chip
+    ts_name: BARO
+    type: av
+
+  - pin: 11
+    id: B12
     class: outputs
-    ts_name: Injector 6 (Pin 8)
+    function: Spare output 2 (STEP_2B_OUT if JP6 bridged)
+    ts_name: Spare 2 Out
+    type: ls
 
-  - id: E14
+  - pin: 12
+    id: B13
     class: outputs
-    ts_name: Injector 7 (Pin 6)
+    function: Spare output 1 (STEP_1B_OUT if JP7 bridged)
+    ts_name: Spare 1 Out
+    type: ls
 
-  - id: E13
+  - pin: 13
+    id: D7
     class: outputs
-    ts_name: Injector 8 (Pin 5)
+    function: Ignition 1
+    ts_name: Ignition 1
+    type: ign
 
-  # Ignition outputs
-  - id: D7
+  - pin: 14
+    id: EFI_ADC_4
+    class: analog_inputs
+    function: Spare analog input, wired as secondary O2 by default
+    ts_name: Spare Analog 2 / O2_2
+    type: av
+
+  - pin: 15
+    id: E6
     class: outputs
-    ts_name: Ignition 1 (Pin 13)
+    function: Fan relay
+    ts_name: Fan
+    type: ls
 
-  - id: B9
+  - pin: 16
+    id: D3
     class: outputs
-    ts_name: Ignition 2 (Pin 31)
+    function: Idle solenoid 2 (STEP_2A_OUT if JP8 bridged)
+    ts_name: Idle 2 Out
+    type: ls
 
-  - id: A8
+  - pin: 17
+    id: EFI_ADC_10
+    class: analog_inputs
+    function: IAT sensor
+    ts_name: IAT
+    type: at
+
+  - pin: 18
+    id: EFI_ADC_0
+    class: analog_inputs
+    function: Spare analog input, wired as secondary IAT by default
+    ts_name: Spare Analog 1 / IAT_2
+    type: at
+
+  - pin: 19
+    id: E3
     class: outputs
-    ts_name: Ignition 3 (Pin 36)
+    function: Fuel pump relay
+    ts_name: Fuel Pump
+    type: ls
 
-  - id: D10
+  - pin: 20
+    id: EFI_ADC_1
+    class: analog_inputs
+    function: Spare analog input, wired as secondary CLT by default
+    ts_name: Spare Analog 3 / CLT_2
+    type: at
+
+  - pin: 21
+    function: Hardware USART1 TX - shared with on-board bluetooth module, fit only one
+    type: usart
+
+  - pin: 22
+    id: D9
     class: outputs
-    ts_name: Ignition 4 (Pin 40)
+    function: GND by default; IGN5-OUT only if JP18 is bridged away from GND
+    ts_name: Ignition 5
+    type: ign
 
-  - id: D9
+  - pin: 23
+    id: EFI_ADC_14
+    class: analog_inputs
+    function: Primary O2/lambda sensor
+    ts_name: O2 Primary
+    type: av
+
+  - pin: 24
+    id: D15
     class: outputs
-    ts_name: Ignition 5 (Pin 22, JP18 must be bridged - default is GND)
+    function: Injector 4
+    ts_name: Injector 4
+    type: inj
 
-  - id: B7
+  - pin: 25
+    id: EFI_ADC_12
+    class: analog_inputs
+    function: MAP sensor
+    ts_name: MAP
+    type: av
+
+  - pin: 26
+    id: B7
     class: outputs
-    ts_name: Ignition 6 (Pin 26, JP16 must be bridged - default is GND)
+    function: GND by default; IGN6-OUT only if JP16 is bridged away from GND
+    ts_name: Ignition 6
+    type: ign
 
-  # Trigger inputs (VR/Hall selectable per-channel via JP2/JP3, conditioned by on-board MAX9926)
+  - pin: 27
+    id: EFI_ADC_13
+    class: analog_inputs
+    function: CLT sensor
+    ts_name: CLT
+    type: at
+
+  - pin: 28
+    id: D14
+    class: outputs
+    function: Injector 3
+    ts_name: Injector 3
+    type: inj
+
+  - pin: 29
+    function: CAN bus High, through on-board transceiver (MCU side is canTxPin/canRxPin, set directly in board_configuration.cpp)
+    type: can
+
+  - pin: 30
+    function: Power ground
+    type: gnd
+
+  - pin: 31
+    id: B9
+    class: outputs
+    function: Ignition 2
+    ts_name: Ignition 2
+    type: ign
+
+  - pin: 32
+    id: D12
+    class: outputs
+    function: Injector 1
+    ts_name: Injector 1
+    type: inj
+
+  - pin: 33
+    function: Power ground
+    type: gnd
+
+  - pin: 34
+    function: Hardware USART1 RX - shared with on-board bluetooth module, fit only one
+    type: usart
+
+  - pin: 35
+    id: EFI_ADC_11
+    class: analog_inputs
+    function: TPS sensor
+    ts_name: TPS
+    type: av
+
+  - pin: 36
+    id: A8
+    class: outputs
+    function: Ignition 3
+    ts_name: Ignition 3
+    type: ign
+
+  - pin: 37
+    function: 5V supply
+    type: 5v
+
+  - pin: 38
+    id: D4
+    class: switch_inputs
+    function: Flex fuel sensor input
+    ts_name: Flex Fuel Input
+    type: flex
+
+  - pin: 39
+    function: VR2- into on-board MAX9926 VR/Hall conditioner (trigger 2); conditioned digital signal is on PE1
+    type: vr
+
+  - pin: 40
+    id: D10
+    class: outputs
+    function: Ignition 4
+    ts_name: Ignition 4
+    type: ign
+
+  - pin: 41
+    function: VR2+ into on-board MAX9926 VR/Hall conditioner (trigger 2); conditioned digital signal is on PE1
+    type: vr hall
+
+  - pin: 42
+    function: VR1- into on-board MAX9926 VR/Hall conditioner (trigger 1); conditioned digital signal is on PE0
+    type: vr
+
+  - pin: 43
+    function: VR1+ into on-board MAX9926 VR/Hall conditioner (trigger 1); conditioned digital signal is on PE0
+    type: vr hall
+
+  - pin: 44
+    id: D13
+    class: outputs
+    function: Injector 2
+    ts_name: Injector 2
+    type: inj
+
+  - pin: 45
+    function: CAN bus Low, through on-board transceiver (MCU side is canTxPin/canRxPin, set directly in board_configuration.cpp)
+    type: can
+
+  - pin: 46
+    function: 3.3V supply
+    type: 3v3
+
+  - pin: 47
+    id: C6
+    class: outputs
+    function: Boost control solenoid
+    ts_name: Boost Out
+    type: ls
+
+  - pin: 48
+    id: C13
+    class: outputs
+    function: Tachometer output
+    ts_name: Tacho Out
+    type: ls
+
+  # Conditioned trigger signals (VR1/Hall1 from pins 43/42, VR2/Hall2 from pins 41/39,
+  # selectable per-channel via JP2/JP3, conditioned by the on-board MAX9926)
   - id: [E0, E0]
     class: [switch_inputs, event_inputs]
-    ts_name: VR/Hall 1 (Pins 43/42)
+    function: Conditioned trigger 1 signal (VR1 or Hall1, see pins 43/42)
+    ts_name: VR/Hall 1
+    type: vr hall
 
   - id: [E1, E1]
     class: [switch_inputs, event_inputs]
-    ts_name: VR/Hall 2 (Pins 41/39)
+    function: Conditioned trigger 2 signal (VR2 or Hall2, see pins 41/39)
+    ts_name: VR/Hall 2
+    type: vr hall
 
-  # Analog sensor inputs
-  - id: EFI_ADC_12
-    class: analog_inputs
-    ts_name: MAP (Pin 25)
-
-  - id: EFI_ADC_13
-    class: analog_inputs
-    ts_name: CLT (Pin 27)
-
-  - id: EFI_ADC_10
-    class: analog_inputs
-    ts_name: IAT (Pin 17)
-
-  - id: EFI_ADC_11
-    class: analog_inputs
-    ts_name: TPS (Pin 35)
-
-  - id: EFI_ADC_14
-    class: analog_inputs
-    ts_name: O2 Primary (Pin 23)
-
-  - id: EFI_ADC_9
-    class: analog_inputs
-    ts_name: BARO - external sensor input (Pin 10)
-
+  # On-board battery sense divider - not on the 48-pin connector
   - id: EFI_ADC_15
     class: analog_inputs
-    ts_name: On-board Battery Sense (PC5)
+    function: On-board VBAT sense divider (33k/5.1k)
+    ts_name: On-board Battery Sense
+    type: av
 
-  # Spare analog inputs - freely repurposable, wired as CLT_2/IAT_2/O2_2 alternates on the board
-  - id: EFI_ADC_0
-    class: analog_inputs
-    ts_name: Spare Analog Input 1 / IAT_2 (Pin 18)
-
-  - id: EFI_ADC_4
-    class: analog_inputs
-    ts_name: Spare Analog Input 2 / O2_2 (Pin 14)
-
-  - id: EFI_ADC_1
-    class: analog_inputs
-    ts_name: Spare Analog Input 3 / CLT_2 (Pin 20)
-
-  # Digital/frequency input
-  - id: D4
-    class: switch_inputs
-    ts_name: Flex Fuel Input (Pin 38)
-
-  # Auxiliary outputs
-  - id: E6
-    class: outputs
-    ts_name: Fan (Pin 15)
-
-  - id: E3
-    class: outputs
-    ts_name: Fuel Pump (Pin 19)
-
-  - id: C13
-    class: outputs
-    ts_name: Tacho Out (Pin 48)
-
-  - id: C6
-    class: outputs
-    ts_name: Boost Out (Pin 47)
-
-  - id: B13
-    class: outputs
-    ts_name: Spare 1 Out (Pin 12, JP7 default position)
-
-  - id: B12
-    class: outputs
-    ts_name: Spare 2 Out (Pin 11, JP6 default position)
-
-  # Idle - 2-wire PWM solenoid outputs (default JP5/JP8 jumper state)
-  - id: C7
-    class: outputs
-    ts_name: Idle 1 Out (Pin 9)
-
-  - id: D3
-    class: outputs
-    ts_name: Idle 2 Out (Pin 16)
-
-  # Idle - DRV8825 stepper control lines (alternate build, JP5-JP8 bridged to STEP_xx)
+  # Idle - DRV8825 stepper control lines (alternate build, JP5-JP8 bridged to STEP_xx).
+  # These are on the on-board DRV8825 breakout header, not the 48-pin connector.
   - id: E5
     class: outputs
+    function: DRV8825 STEP
     ts_name: Idle Stepper STEP
+    type: ls
 
   - id: E7
     class: outputs
+    function: DRV8825 DIR
     ts_name: Idle Stepper DIR
+    type: ls
 
   - id: E2
     class: outputs
+    function: DRV8825 EN
     ts_name: Idle Stepper EN
+    type: ls
+
+info:
+  title: SPECTRE
+  name: Main Connector
+  board_url: https://github.com/Tjeerdie/SPECTRE
+  directory: spectre
+  cid: main
+  order: 0
+  image:
+    # main.jpg is the bare connector housing photo reused from microRusEFI's connectors/main.jpg -
+    # same Molex 48-pin connector part/pin grid, so the x/y coordinates below apply unchanged
+    file: main.jpg
+  pins:
+    - pin: 1
+      x: 1508
+      y: 958
+    - pin: 2
+      x: 1508
+      y: 787
+    - pin: 3
+      x: 1508
+      y: 616
+    - pin: 4
+      x: 1508
+      y: 445
+    - pin: 5
+      x: 1363
+      y: 958
+    - pin: 6
+      x: 1363
+      y: 787
+    - pin: 7
+      x: 1363
+      y: 616
+    - pin: 8
+      x: 1363
+      y: 445
+    - pin: 9
+      x: 1217
+      y: 958
+    - pin: 10
+      x: 1217
+      y: 787
+    - pin: 11
+      x: 1217
+      y: 616
+    - pin: 12
+      x: 1217
+      y: 445
+    - pin: 13
+      x: 1114
+      y: 958
+    - pin: 14
+      x: 1114
+      y: 787
+    - pin: 15
+      x: 1114
+      y: 616
+    - pin: 16
+      x: 1114
+      y: 445
+    - pin: 17
+      x: 1011
+      y: 958
+    - pin: 18
+      x: 1011
+      y: 787
+    - pin: 19
+      x: 1011
+      y: 616
+    - pin: 20
+      x: 1011
+      y: 445
+    - pin: 21
+      x: 908
+      y: 958
+    - pin: 22
+      x: 908
+      y: 787
+    - pin: 23
+      x: 908
+      y: 616
+    - pin: 24
+      x: 908
+      y: 445
+    - pin: 25
+      x: 805
+      y: 958
+    - pin: 26
+      x: 805
+      y: 787
+    - pin: 27
+      x: 805
+      y: 616
+    - pin: 28
+      x: 805
+      y: 445
+    - pin: 29
+      x: 702
+      y: 958
+    - pin: 30
+      x: 702
+      y: 787
+    - pin: 31
+      x: 702
+      y: 616
+    - pin: 32
+      x: 702
+      y: 445
+    - pin: 33
+      x: 599
+      y: 958
+    - pin: 34
+      x: 599
+      y: 787
+    - pin: 35
+      x: 599
+      y: 616
+    - pin: 36
+      x: 599
+      y: 445
+    - pin: 37
+      x: 496
+      y: 958
+    - pin: 38
+      x: 496
+      y: 787
+    - pin: 39
+      x: 496
+      y: 616
+    - pin: 40
+      x: 496
+      y: 445
+    - pin: 41
+      x: 393
+      y: 958
+    - pin: 42
+      x: 393
+      y: 787
+    - pin: 43
+      x: 393
+      y: 616
+    - pin: 44
+      x: 393
+      y: 445
+    - pin: 45
+      x: 290
+      y: 958
+    - pin: 46
+      x: 290
+      y: 787
+    - pin: 47
+      x: 290
+      y: 616
+    - pin: 48
+      x: 290
+      y: 445
