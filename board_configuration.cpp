@@ -118,6 +118,9 @@ static void customBoardDefaultConfiguration() {
 	setIdleConfig();
 	setCanPins();
 	setupVbatt();
+
+	// Enable software knock detection - hardware ADC pin/timing defined in knock_config.h
+	engineConfiguration->enableSoftwareKnock = true;
 }
 
 void setup_custom_board_overrides() {
