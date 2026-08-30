@@ -65,10 +65,26 @@ jobs:
           }
 
     - name: Showing Output Folder
-      run: ls -l pinouts
+      run: ls -l pinouts/
 
-    - name: Upload Pinouts
-      env:
-        pass: ${{ secrets.RUSEFI_SSH_PASS }}
-      if: ${{ env.pass != '' }}
-      run: tar -czf - pinouts | sshpass -p "${{ secrets.RUSEFI_SSH_PASS }}" ssh -o StrictHostKeyChecking=no "${{ secrets.RUSEFI_SSH_USER }}"@"${{ secrets.RUSEFI_SSH_SERVER }}" "tar -xzf - -C docs"
+    - name: Upload static files as artifact
+      id: deployment
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: pinouts/spectre
+
+  deploy:
+    needs: generate
+    permissions:
+      pages: write      # to deploy to Pages
+      id-token: write   # to verify the deployment originates from an appropriate source
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
