@@ -6,10 +6,34 @@
 // see comments at declaration in pin_repository.h
 const char * getBoardSpecificPinName(brain_pin_e brainPin) {
 	switch(brainPin) {
-		case Gpio::B14: return "B14 Output";
-		case Gpio::E2: return "VR/Hall 1 (E2)";
-		case Gpio::E3: return "VR/Hall 2 (E3)";
-		case Gpio::E4: return "VR/Hall 3 (E4)";
+		case Gpio::A8: return "Ignition 3 (Pin 36)";
+		case Gpio::B12: return "Spare 2 Out (Pin 11, JP6 default position)";
+		case Gpio::B13: return "Spare 1 Out (Pin 12, JP7 default position)";
+		case Gpio::B7: return "Ignition 6 (Pin 26, JP16 must be bridged - default is GND)";
+		case Gpio::B9: return "Ignition 2 (Pin 31)";
+		case Gpio::C13: return "Tacho Out (Pin 48)";
+		case Gpio::C6: return "Boost Out (Pin 47)";
+		case Gpio::C7: return "Idle 1 Out (Pin 9)";
+		case Gpio::D10: return "Ignition 4 (Pin 40)";
+		case Gpio::D12: return "Injector 1 (Pin 32)";
+		case Gpio::D13: return "Injector 2 (Pin 44)";
+		case Gpio::D14: return "Injector 3 (Pin 28)";
+		case Gpio::D15: return "Injector 4 (Pin 24)";
+		case Gpio::D3: return "Idle 2 Out (Pin 16)";
+		case Gpio::D4: return "Flex Fuel Input (Pin 38)";
+		case Gpio::D7: return "Ignition 1 (Pin 13)";
+		case Gpio::D9: return "Ignition 5 (Pin 22, JP18 must be bridged - default is GND)";
+		case Gpio::E0: return "VR/Hall 1 (Pins 43/42)";
+		case Gpio::E1: return "VR/Hall 2 (Pins 41/39)";
+		case Gpio::E11: return "Injector 6 (Pin 8)";
+		case Gpio::E13: return "Injector 8 (Pin 5)";
+		case Gpio::E14: return "Injector 7 (Pin 6)";
+		case Gpio::E2: return "Idle Stepper EN";
+		case Gpio::E3: return "Fuel Pump (Pin 19)";
+		case Gpio::E5: return "Idle Stepper STEP";
+		case Gpio::E6: return "Fan (Pin 15)";
+		case Gpio::E7: return "Idle Stepper DIR";
+		case Gpio::E9: return "Injector 5 (Pin 7)";
 		default: return nullptr;
 	}
 	return nullptr;
