@@ -4,54 +4,54 @@
 #pragma once
 
 Gpio GENERATED_OUTPUTS[] = {
-	Gpio::D12, // Injector 1 (Pin 32)
-	Gpio::D13, // Injector 2 (Pin 44)
-	Gpio::D14, // Injector 3 (Pin 28)
-	Gpio::D15, // Injector 4 (Pin 24)
-	Gpio::E9, // Injector 5 (Pin 7)
-	Gpio::E11, // Injector 6 (Pin 8)
-	Gpio::E14, // Injector 7 (Pin 6)
-	Gpio::E13, // Injector 8 (Pin 5)
-	Gpio::D7, // Ignition 1 (Pin 13)
-	Gpio::B9, // Ignition 2 (Pin 31)
-	Gpio::A8, // Ignition 3 (Pin 36)
-	Gpio::D10, // Ignition 4 (Pin 40)
-	Gpio::D9, // Ignition 5 (Pin 22, JP18 must be bridged - default is GND)
-	Gpio::B7, // Ignition 6 (Pin 26, JP16 must be bridged - default is GND)
-	Gpio::E6, // Fan (Pin 15)
-	Gpio::E3, // Fuel Pump (Pin 19)
-	Gpio::C13, // Tacho Out (Pin 48)
-	Gpio::C6, // Boost Out (Pin 47)
-	Gpio::B13, // Spare 1 Out (Pin 12, JP7 default position)
-	Gpio::B12, // Spare 2 Out (Pin 11, JP6 default position)
-	Gpio::C7, // Idle 1 Out (Pin 9)
-	Gpio::D3, // Idle 2 Out (Pin 16)
+	Gpio::E13, // Injector 8
+	Gpio::E14, // Injector 7
+	Gpio::E9, // Injector 5
+	Gpio::E11, // Injector 6
+	Gpio::C7, // Idle 1 Out
+	Gpio::B12, // Spare 2 Out
+	Gpio::B13, // Spare 1 Out
+	Gpio::E6, // Fan
+	Gpio::D3, // Idle 2 Out
+	Gpio::E3, // Fuel Pump
+	Gpio::D15, // Injector 4
+	Gpio::D14, // Injector 3
+	Gpio::D12, // Injector 1
+	Gpio::D13, // Injector 2
+	Gpio::C6, // Boost Out
+	Gpio::C13, // Tacho Out
 	Gpio::E5, // Idle Stepper STEP
 	Gpio::E7, // Idle Stepper DIR
 	Gpio::E2, // Idle Stepper EN
-// "Injector 1 (Pin 32)",
-// "Injector 2 (Pin 44)",
-// "Injector 3 (Pin 28)",
-// "Injector 4 (Pin 24)",
-// "Injector 5 (Pin 7)",
-// "Injector 6 (Pin 8)",
-// "Injector 7 (Pin 6)",
-// "Injector 8 (Pin 5)",
-// "Ignition 1 (Pin 13)",
-// "Ignition 2 (Pin 31)",
-// "Ignition 3 (Pin 36)",
-// "Ignition 4 (Pin 40)",
-// "Ignition 5 (Pin 22, JP18 must be bridged - default is GND)",
-// "Ignition 6 (Pin 26, JP16 must be bridged - default is GND)",
-// "Fan (Pin 15)",
-// "Fuel Pump (Pin 19)",
-// "Tacho Out (Pin 48)",
-// "Boost Out (Pin 47)",
-// "Spare 1 Out (Pin 12, JP7 default position)",
-// "Spare 2 Out (Pin 11, JP6 default position)",
-// "Idle 1 Out (Pin 9)",
-// "Idle 2 Out (Pin 16)",
+	Gpio::D7, // Ignition 1
+	Gpio::D9, // Ignition 5
+	Gpio::B7, // Ignition 6
+	Gpio::B9, // Ignition 2
+	Gpio::A8, // Ignition 3
+	Gpio::D10, // Ignition 4
+// "Injector 8",
+// "Injector 7",
+// "Injector 5",
+// "Injector 6",
+// "Idle 1 Out",
+// "Spare 2 Out",
+// "Spare 1 Out",
+// "Fan",
+// "Idle 2 Out",
+// "Fuel Pump",
+// "Injector 4",
+// "Injector 3",
+// "Injector 1",
+// "Injector 2",
+// "Boost Out",
+// "Tacho Out",
 // "Idle Stepper STEP",
 // "Idle Stepper DIR",
 // "Idle Stepper EN",
+// "Ignition 1",
+// "Ignition 5",
+// "Ignition 6",
+// "Ignition 2",
+// "Ignition 3",
+// "Ignition 4",
 }
