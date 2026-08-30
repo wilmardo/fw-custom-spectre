@@ -1,6 +1,10 @@
-# DOES NOT WORK, ONLY has 512kb of ram where rus requires 1mb
+# SPECTRE ECU board port to rusefi
 
-# Spectre pin mappings
+https://github.com/Tjeerdie/SPECTRE
+
+You will need to replace the CPU on the dev board to an `STM32F407VGT6` to have 1MB flash available which rusefi requires
+
+## Spectre pin mappings
 
 Board uses a molex 48 pin header p/n 5007620481
 

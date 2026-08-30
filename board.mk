@@ -24,3 +24,6 @@ DDEFS += -DEFI_EMBED_INI_MSD=FALSE
 
 #see main repo for details on this any many other optional subsystems. We have too many, one has to choose what fits into his choice of stm32
 #DDEFS += -DEFI_ONBOARD_MEMS=TRUE
+
+# Software knock detection on ADC3 (pin PA3, see knock_config.h)
+DDEFS += -DEFI_SOFTWARE_KNOCK=TRUE -DSTM32_ADC_USE_ADC3=TRUE
